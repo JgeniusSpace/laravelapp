@@ -184,6 +184,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Sven\ArtisanView\ArtisanViewServiceProvider::class,
         \Germey\Geetest\GeetestServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
     ],
 
@@ -234,6 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Geetest' => Germey\Geetest\Geetest::class,
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];
