@@ -31,7 +31,7 @@
                 </div>
 
                 <br/>
-                {!! Geetest::render() !!}
+                {{--{!! Geetest::render() !!}--}}
                 <div>
                     <button type="submit" class="btn btn-primary submit">Log in</button>
                     <a class="reset_pass" href="{{ url('/password/reset') }}">Lost your password?</a>
