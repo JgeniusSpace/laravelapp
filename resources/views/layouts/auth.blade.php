@@ -16,7 +16,7 @@
     <!-- NProgress -->
     <link href="{{ asset('back/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="{{ asset('back/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('back/vendors/animate.css/animate.min.css') }}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="{{ asset('back/build/css/custom.min.css') }}" rel="stylesheet">
