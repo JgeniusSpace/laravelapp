@@ -182,6 +182,7 @@ return [
         // 自定义
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Sven\ArtisanView\ArtisanViewServiceProvider::class,
 
     ],
 
