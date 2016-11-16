@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('login/geetest','Auth\LoginController@getGeetest');
+
+Route::get('/admin/home', 'Admin\HomeController@index');
