@@ -22,4 +22,3 @@ Route::get('/home', 'HomeController@index');
 Route::get('login/geetest','Auth\LoginController@getGeetest');
 
 Route::get('/admin/home', 'Admin\HomeController@index');
-Route::get('/admin/home1', 'Admin\HomeController@index');
