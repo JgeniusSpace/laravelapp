@@ -21,4 +21,13 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('login/geetest','Auth\LoginController@getGeetest');
 
-Route::get('/admin/home', 'Admin\HomeController@index');
+
+/**
+ * 后台路由
+ */
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']], function () {
+    // 首页路由
+    require (__DIR__.'/admin/HomeRoute.php');
+    // 菜单路由
+    require (__DIR__.'/admin/MenuRoute.php');
+});
