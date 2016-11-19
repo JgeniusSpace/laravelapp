@@ -6,7 +6,7 @@
 <link href="{{ asset('back/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 <!-- nestable -->
 <link href="{{ asset('back/vendors/jquery-nestable/jquery.nestable.css') }}" rel="stylesheet">
-@endsection
+@stop
 @section('content')
 <!-- page content -->
 <div class="right_col" role="main">
@@ -111,51 +111,56 @@
                         <form class="form-horizontal form-label-left">
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单名称</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Default Input">
+                                    <input id="name" name="name" type="text" class="form-control" placeholder="菜单名称">
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Custom</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单图标</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="icon" name="icon" type="text" class="form-control" placeholder="菜单图标">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">父级菜单</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <select class="select2_single form-control" tabindex="-1">
                                         <option></option>
                                         <option value="AK">Alaska</option>
-                                        <option value="HI">Hawaii</option>
-                                        <option value="CA">California</option>
-                                        <option value="NV">Nevada</option>
-                                        <option value="OR">Oregon</option>
-                                        <option value="WA">Washington</option>
-                                        <option value="AZ">Arizona</option>
-                                        <option value="CO">Colorado</option>
-                                        <option value="ID">Idaho</option>
-                                        <option value="MT">Montana</option>
-                                        <option value="NE">Nebraska</option>
-                                        <option value="NM">New Mexico</option>
-                                        <option value="ND">North Dakota</option>
-                                        <option value="UT">Utah</option>
-                                        <option value="WY">Wyoming</option>
-                                        <option value="AR">Arkansas</option>
-                                        <option value="IL">Illinois</option>
-                                        <option value="IA">Iowa</option>
-                                        <option value="KS">Kansas</option>
-                                        <option value="KY">Kentucky</option>
-                                        <option value="LA">Louisiana</option>
-                                        <option value="MN">Minnesota</option>
-                                        <option value="MS">Mississippi</option>
-                                        <option value="MO">Missouri</option>
-                                        <option value="OK">Oklahoma</option>
-                                        <option value="SD">South Dakota</option>
-                                        <option value="TX">Texas</option>
+
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单链接</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="url" name="url" type="text" class="form-control" placeholder="菜单链接">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单高亮</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="icon" name="icon" type="text" class="form-control" placeholder="菜单高亮">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单排序</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="icon" name="icon" type="text" class="form-control" placeholder="菜单排序">
+                                </div>
+                            </div>
+
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                    <button type="submit" class="btn btn-default">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="#" class="btn btn-default">取消</button>
+                                    <button type="submit" class="btn btn-success">确认</button>
                                 </div>
                             </div>
 
@@ -168,7 +173,7 @@
     </div>
 </div>
 <!-- /page content -->
-@endsection
+@stop
 
 @section('js')
 <!-- Select2 -->
@@ -189,4 +194,4 @@
         $('#nestable_list_3').nestable();
     });
 </script>
-@endsection
+@stop
