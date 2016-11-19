@@ -16,11 +16,11 @@ class CreateMenusTable extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->default('')->comment('菜单名称');
-            $table->string('icon')->default('')->commit('菜单图标');
-            $table->tinyInteger('parent_id')->default(0)->commit('父级菜单ID');
-            $table->string('url')->default('')->commit('菜单链接');
-            $table->string('heightlight_url')->default('')->commit('菜单高亮');
-            $table->tinyInteger('sort')->unsigned()->default(0)->commit('菜单排序');
+            $table->string('icon')->default('')->comment('菜单图标');
+            $table->tinyInteger('parent_id')->default(0)->comment('父级菜单ID');
+            $table->string('url')->default('')->comment('菜单链接');
+            $table->string('heightlight_url')->default('')->comment('菜单高亮');
+            $table->tinyInteger('sort')->unsigned()->default(0)->comment('菜单排序');
             $table->timestamps();
         });
     }
