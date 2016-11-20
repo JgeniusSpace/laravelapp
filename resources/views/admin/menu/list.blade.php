@@ -83,6 +83,19 @@
                 </div>
             </div>
             <!-- end left panel -->
+
+            @if (count ($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>
+                                {{ $error }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <!-- right panel -->
             <div class="col-md-6">
                 <div class="x_panel">

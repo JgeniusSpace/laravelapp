@@ -179,12 +179,13 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-        // 自定义
+        // 添加的扩展
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Sven\ArtisanView\ArtisanViewServiceProvider::class,
         \Germey\Geetest\GeetestServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
