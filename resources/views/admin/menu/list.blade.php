@@ -1,7 +1,6 @@
 @extends('layouts.admin.admin')
 
 @section('css')
-@parent
 <!-- Select2 -->
 <link href="{{ asset('back/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 <!-- nestable -->
@@ -177,7 +176,6 @@
 
 @section('js')
 <!-- Select2 -->
-@parent
 <script src="{{ asset('back/vendors/select2/dist/js/select2.full.min.js') }}"></script>
 <!-- nestable -->
 <script src="{{ asset('back/vendors/jquery-nestable/jquery.nestable.js') }}"></script>
