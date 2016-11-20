@@ -107,19 +107,19 @@
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left">
-
+                        <form action="{{ url('admin/menus') }}" method="post" class="form-horizontal form-label-left" >
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单名称</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input id="name" name="name" type="text" class="form-control" placeholder="菜单名称">
+                                    <input type="text" id="name" name="name" value="{{ old('name') }}" class="form-control" placeholder="菜单名称">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单图标</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input id="icon" name="icon" type="text" class="form-control" placeholder="菜单图标">
+                                    <input type="text" id="icon" name="icon" value="{{ old('icon') }}" class="form-control" placeholder="菜单图标">
                                 </div>
                             </div>
 
@@ -137,21 +137,21 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单链接</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input id="url" name="url" type="text" class="form-control" placeholder="菜单链接">
+                                    <input type="text" id="url" name="url" value="{{ old('url') }}" class="form-control" placeholder="菜单链接">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单高亮</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input id="icon" name="icon" type="text" class="form-control" placeholder="菜单高亮">
+                                    <input type="text" id="heightlight_url" name="heightlight_url" value="{{ old('heightlight_url') }}" class="form-control" placeholder="菜单高亮">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单排序</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input id="icon" name="icon" type="text" class="form-control" placeholder="菜单排序">
+                                    <input id="sort" name="sort" type="text" value="{{ old('sort') }}" class="form-control" placeholder="菜单排序">
                                 </div>
                             </div>
 

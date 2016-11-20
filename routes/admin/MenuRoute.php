@@ -7,4 +7,5 @@
  * Time: 下午9:00
  */
 
-Route::resource('/menu', 'MenuController@index');
+Route::resource('menus', 'MenusController');
+//Route::post('/menus/store', 'MenuController@store');
