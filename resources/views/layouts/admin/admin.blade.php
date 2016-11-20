@@ -8,18 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Gentellela Alela! | </title>
-    @section('css')
+
     <!-- Bootstrap -->
     <link href="{{ asset('back/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{ asset('back/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
     <link href="{{ asset('back/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
-    <!-- jQuery custom content scroller -->
+<!-- jQuery custom content scroller -->
     <link href="{{ asset('back/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
-    <!-- Custom Theme Style -->
+<!-- Custom Theme Style -->
     <link href="{{ asset('back/build/css/custom.min.css') }}" rel="stylesheet">
-    @show
+    @yield('css')
+
 </head>
 
 <body class="nav-md">
@@ -34,7 +35,7 @@
         @include('layouts.admin.footer')
     </div>
 </div>
-@section('js')
+
 <!-- jQuery -->
 <script src="{{ asset('back/vendors/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
@@ -47,6 +48,7 @@
 <script src="{{ asset('back/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('back/build/js/custom.min.js') }}"></script>
-@show
+@yield('js')
+
 </body>
 </html>
