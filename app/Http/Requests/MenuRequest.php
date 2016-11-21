@@ -24,9 +24,8 @@ class MenuRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'bail|required|unique:menus',
             'icon' => 'required',
-//            'parent_id' => 'required',
             'url' => 'required',
 //            'heightlight_url' => 'required',
             'sort' => 'required',
@@ -37,8 +36,8 @@ class MenuRequest extends FormRequest
     {
         return [
             'name.required' => '菜单名称不能为空',
+            'name.unique' => '菜单名称重复',
             'icon.required' => '菜单图标不能为空',
-//            'parent_id.required' => '菜单父级不能为空',
             'url.required' => '菜单链接不能为空',
 //            'heightlight_url.required' => '菜单高亮不能为空',
             'sort.required' => '菜单排序不能为空',

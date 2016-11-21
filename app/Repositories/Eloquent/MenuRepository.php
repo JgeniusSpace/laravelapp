@@ -15,7 +15,7 @@ class MenuRepository extends BaseRepository {
      * 实现父类的 model 方法
      * @return mixed
      */
-    function model() {
+    function model () {
         return Menu::class;
     }
 
