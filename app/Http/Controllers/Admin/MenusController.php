@@ -30,7 +30,10 @@ class MenusController extends Controller
      */
     public function index()
     {
-        return view('admin.menu.list');
+        
+        $menuData = $this->menuRepository->all();
+        
+        return view('admin.menu.list')->with('menu', $menuData);
     }
 
     /**

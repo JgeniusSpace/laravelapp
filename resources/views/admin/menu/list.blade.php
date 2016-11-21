@@ -139,10 +139,9 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">父级菜单</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <select class="select2_single form-control" tabindex="-1">
-                                        <option></option>
-                                        <option value="AK">Alaska</option>
-
+                                    <select id="parent_id" name="parent_id" class="select2_single form-control" tabindex="-1">
+                                        @inject("menus", "App\Repositories\Presenter\MenuPresenter");
+                                        {!! $menus->getMenu($menu) !!}
                                     </select>
                                 </div>
                             </div>

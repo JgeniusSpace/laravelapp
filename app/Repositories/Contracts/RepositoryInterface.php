@@ -17,4 +17,11 @@ interface RepositoryInterface {
      * @return mixed
      */
     public function create (array $attributes);
+
+    /**
+     * 数据集合
+     * 
+     * @return mixed
+     */
+    public function all ();
 }

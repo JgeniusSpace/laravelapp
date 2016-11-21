@@ -50,8 +50,12 @@ abstract class BaseRepository implements RepositoryInterface {
      * @param array $attributes
      * @return mixed
      */
-    public function create(array $attributes) {
+    public function create (array $attributes) {
         return $this->model->fill($attributes)->save();
+    }
+    
+    public function all() {
+        return $this->model->all();
     }
 
     /**
