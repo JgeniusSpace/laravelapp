@@ -45,7 +45,7 @@ abstract class BaseRepository implements RepositoryInterface {
     abstract function model ();
 
     /**
-     * 实现接口方法
+     * 实现接口方法 （添加数据集合）
      *
      * @param array $attributes
      * @return mixed
@@ -53,9 +53,26 @@ abstract class BaseRepository implements RepositoryInterface {
     public function create (array $attributes) {
         return $this->model->fill($attributes)->save();
     }
-    
-    public function all () {
-        return $this->model->all();
+
+    /**
+     * 获取对应表中的所有数据
+     *
+     * @param $columns
+     * @return mixed
+     */
+    public function all ($columns = ['*']) {
+        return $this->model->all($columns);
+    }
+
+    /**
+     * 根据字段获取对应的数据集合
+     *
+     * @param $filed
+     * @param $value
+     * @return mixed
+     */
+    public function getByField($filed, $value) {
+        return $this->model->where(array($filed=>$value))->get();
     }
 
     /**

@@ -20,8 +20,17 @@ interface RepositoryInterface {
 
     /**
      * 数据集合
-     * 
+     * @param $columns
      * @return mixed
      */
-    public function all ();
+    public function all ($columns = ['*']);
+
+    /**
+     * 根据某个字段获取对应的数据集合
+     * 
+     * @param $filed 
+     * @param $value
+     * @return mixed
+     */
+    public function getByField ($filed, $value);
 }
