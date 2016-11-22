@@ -7,7 +7,7 @@
 <link href="{{ asset('back/vendors/jquery-nestable/jquery.nestable.css') }}" rel="stylesheet">
 @stop
 @section('content')
-@inject("menus", "App\Repositories\Presenter\MenuPresenter");
+@inject("menus", "App\Repositories\Presenter\MenuPresenter")
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -71,6 +71,7 @@
                                         </div>
                                     </div>
                                 </li>
+
                                 {!! $menus->getMenuList($menuList) !!}
                             </ol>
                         </div>
@@ -78,9 +79,6 @@
                 </div>
             </div>
             <!-- end left panel -->
-
-
-
             <!-- right panel -->
             <div class="col-md-6">
                 <div class="x_panel">
@@ -104,7 +102,6 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <br />
                         <form action="{{ url('admin/menus') }}" method="post" class="form-horizontal form-label-left" >
                             {{ csrf_field() }}
                             <div class="form-group">

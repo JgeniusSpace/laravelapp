@@ -2,7 +2,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Menu;
-
+use Cache;
 /**
  * 菜单仓库类
  *
@@ -69,7 +69,9 @@ class MenuRepository extends BaseRepository {
     public function sortTreeMenu () {
         $menus = $this->model->orderBy('sort', 'desc')->get();
         if ($menus) {
-            return $this->treeMenu($menus);
+            $menuList = $this->treeMenu($menus);
+            Cache::forever(config('globals.admin.cache.menuList'), $menuList);
+            return $menuList;
         }
         return "";
     }
@@ -80,6 +82,10 @@ class MenuRepository extends BaseRepository {
      * @return array|string
      */
     public function getMenuList () {
+
+        if (Cache::has(config('globals.admin.cache.menuList'))) {
+            return Cache::get(config('globals.admin.cache.menuList'));
+        }
         return $this->sortTreeMenu();
     }
 
