@@ -101,6 +101,7 @@
                         </ul>
                         <div class="clearfix"></div>
                     </div>
+                    @permission('admin.menus.add')
                     <div class="x_content">
                         <form action="{{ url('admin/menus') }}" method="post" class="form-horizontal form-label-left" >
                             {{ csrf_field() }}
@@ -159,6 +160,7 @@
 
                         </form>
                     </div>
+                    @endpermission
                 </div>
             </div>
             <!-- end right panel -->
