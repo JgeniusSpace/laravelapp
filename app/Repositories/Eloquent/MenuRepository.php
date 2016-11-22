@@ -47,7 +47,7 @@ class MenuRepository extends BaseRepository {
      *
      * @param $menus
      * @return string
-     */
+
     public function sortTreeMenu ($menus) {
         if (!$menus) {
             return '';
@@ -59,6 +59,29 @@ class MenuRepository extends BaseRepository {
             }
         }
         return $menus;
+    }*/
+
+    /**
+     * 子菜单排序改进
+     *
+     * @return array|string
+     */
+    public function sortTreeMenu () {
+        $menus = $this->model->orderBy('sort', 'desc')->get();
+        if ($menus) {
+            return $this->treeMenu($menus);
+        }
+        return "";
     }
+
+    /**
+     * 获取菜单列表
+     *
+     * @return array|string
+     */
+    public function getMenuList () {
+        return $this->sortTreeMenu();
+    }
+
 
 }

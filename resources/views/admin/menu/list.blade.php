@@ -7,6 +7,7 @@
 <link href="{{ asset('back/vendors/jquery-nestable/jquery.nestable.css') }}" rel="stylesheet">
 @stop
 @section('content')
+@inject("menus", "App\Repositories\Presenter\MenuPresenter");
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -70,28 +71,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="dd-item dd3-item" data-id="14">
-                                    <div class="dd-handle dd3-handle"> </div>
-                                    <div class="dd3-content"> Item 14 </div>
-                                </li>
-                                <li class="dd-item dd3-item" data-id="15">
-                                    <div class="dd-handle dd3-handle"> </div>
-                                    <div class="dd3-content"> Item 15 </div>
-                                    <ol class="dd-list">
-                                        <li class="dd-item dd3-item" data-id="16">
-                                            <div class="dd-handle dd3-handle"> </div>
-                                            <div class="dd3-content"> Item 16 </div>
-                                        </li>
-                                        <li class="dd-item dd3-item" data-id="17">
-                                            <div class="dd-handle dd3-handle"> </div>
-                                            <div class="dd3-content"> Item 17 </div>
-                                        </li>
-                                        <li class="dd-item dd3-item" data-id="18">
-                                            <div class="dd-handle dd3-handle"> </div>
-                                            <div class="dd3-content"> Item 18 </div>
-                                        </li>
-                                    </ol>
-                                </li>
+                                {!! $menus->getMenuList($menuList) !!}
                             </ol>
                         </div>
                     </div>
@@ -145,7 +125,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">父级菜单</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <select id="parent_id" name="parent_id" class="select2_single form-control" tabindex="-1">
-                                        @inject("menus", "App\Repositories\Presenter\MenuPresenter");
+
                                         {!! $menus->getMenu($menu) !!}
                                     </select>
                                 </div>
