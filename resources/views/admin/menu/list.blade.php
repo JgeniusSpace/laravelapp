@@ -60,18 +60,6 @@
                     <div class="x_content bs-example-popovers">
                         <div class="dd" id="nestable_list_3">
                             <ol class="dd-list">
-                                <li class="dd-item dd3-item" data-id="13">
-                                    <div class="dd-handle dd3-handle"> </div>
-                                    <div class="dd3-content">
-                                        Item 13
-                                        <div class="pull-right action-buttons">
-                                            <a href="javascript:;" data-pid="#" class="btn-xs createMenu" data-toggle="tooltip" data-original-title="#"  data-placement="top"><i class="fa fa-plus"></i></a>
-                                            <a href="javascript:;" data-href="#" class="btn-xs editMenu" data-toggle="tooltip" data-original-title="#"  data-placement="top"><i class="fa fa-pencil"></i></a>
-                                            <a href="javascript:;" data-id="##" class="btn-xs destoryMenu" data-original-title="##" data-toggle="tooltip"  data-placement="top"><i class="fa fa-trash"></i><form action="#" method="POST" name="delete_item" style="display:none"><input type="hidden" name="_method" value="delete"><input type="hidden" name="_token" value=""></form></a>
-                                        </div>
-                                    </div>
-                                </li>
-
                                 {!! $menus->getMenuList($menuList) !!}
                             </ol>
                         </div>
@@ -79,6 +67,9 @@
                 </div>
             </div>
             <!-- end left panel -->
+
+            {{-- 5.3 中必须使用双括号 --}}
+            @permission(('admin.menus.add'))
             <!-- right panel -->
             <div class="col-md-6">
                 <div class="x_panel">
@@ -101,8 +92,7 @@
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-                    {{-- 5.3 中必须使用双括号 --}}
-                    @permission(('admin.menus.add'))
+
                     <div class="x_content">
                         <form action="{{ url('admin/menus') }}" method="post" class="form-horizontal form-label-left" >
                             {{ csrf_field() }}
@@ -160,10 +150,10 @@
 
                         </form>
                     </div>
-                    @endpermission
                 </div>
             </div>
             <!-- end right panel -->
+            @endpermission
         </div>
     </div>
 </div>
@@ -175,6 +165,8 @@
 <script src="{{ asset('back/vendors/select2/dist/js/select2.full.min.js') }}"></script>
 <!-- nestable -->
 <script src="{{ asset('back/vendors/jquery-nestable/jquery.nestable.js') }}"></script>
+{{-- 自定义js --}}
+<script src="{{ asset('back/js/menu.js') }}"></script>
 
 <script>
     $(document).ready(function() {
@@ -186,6 +178,9 @@
 
         // nestable
         $('#nestable_list_3').nestable();
+
+        MenuList.init();
+
     });
 </script>
 @stop

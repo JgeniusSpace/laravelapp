@@ -57,6 +57,8 @@ class MenusController extends Controller
     {
         $bool = $this->menuRepository->create($request->all());
         if ($bool) {
+            // 添加成功，刷新缓存
+            $this->menuRepository->sortTreeMenu();
             flash('菜单添加成功', 'success');
         } else {
             flash('菜单添加失败', 'error');
