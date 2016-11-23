@@ -101,7 +101,8 @@
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-                    @permission('admin.menus.add')
+                    {{-- 5.3 中必须使用双括号 --}}
+                    @permission(('admin.menus.add'))
                     <div class="x_content">
                         <form action="{{ url('admin/menus') }}" method="post" class="form-horizontal form-label-left" >
                             {{ csrf_field() }}
@@ -123,7 +124,6 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">父级菜单</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <select id="parent_id" name="parent_id" class="select2_single form-control" tabindex="-1">
-
                                         {!! $menus->getMenu($menu) !!}
                                     </select>
                                 </div>
