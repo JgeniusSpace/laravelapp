@@ -92,7 +92,7 @@ class MenuPresenter {
             }
         }
         if (auth()->user()->can('admin.menus.edit')) {
-            $action .= '<a href="javascript:;" data-href="#" class="btn-xs editMenu" data-toggle="tooltip" data-original-title="#"  data-placement="top"><i class="fa fa-pencil"></i></a>';
+            $action .= '<a href="javascript:;" data-href="' . url('admin/menu', $id) . '" class="btn-xs editMenu" data-toggle="tooltip" data-original-title="#"  data-placement="top"><i class="fa fa-pencil"></i></a>';
         }
 
         if (auth()->user()->can('admin.menus.delete')) {

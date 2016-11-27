@@ -85,19 +85,20 @@ class MenusController extends Controller
      */
     public function edit($id)
     {
-        //
+        $menu = $this->menuRepository->editMenu($id);
+        return response()->json($menu);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  MenuRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MenuRequest $request)
     {
-        //
+        $this->menuRepository->updateMenu($request);
+        return redirect('admin/menu');
     }
 
     /**

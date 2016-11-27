@@ -89,5 +89,31 @@ class MenuRepository extends BaseRepository {
         return $this->sortTreeMenu();
     }
 
+    public function editMenu ($id) {
+        $menu = $this->model->find($id)->toArray();
+        if ($menu) {
+            $menu['update'] = url('admin/menu' . $id);
+            $menu['msg'] = '加载成功';
+            $menu['status'] = true;
+            return $menu;
+        }
+        return ['status' => false, 'msg' => '加载失败'];
+    }
 
+    public function updateMenu($request)
+    {
+        $menu = $this->model->find($request->id);
+        if ($menu) {
+
+            $isUpdate = $menu->update($request->all());
+            if ($isUpdate) {
+                $this->sortTreeMenu();
+                flash('修改菜单成功', 'success');
+                return true;
+            }
+            flash('修改菜单失败', 'error');
+            return false;
+        }
+        abort(404,'菜单数据找不到');
+    }
 }

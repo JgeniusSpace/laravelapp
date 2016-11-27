@@ -165,9 +165,10 @@
 <script src="{{ asset('back/vendors/select2/dist/js/select2.full.min.js') }}"></script>
 <!-- nestable -->
 <script src="{{ asset('back/vendors/jquery-nestable/jquery.nestable.js') }}"></script>
+{{-- layui --}}
+<script src="{{ asset('js/layui/layui/layui.js') }}"></script>
 {{-- 自定义js --}}
 <script src="{{ asset('back/js/menu.js') }}"></script>
-
 <script>
     $(document).ready(function() {
         // Select2
@@ -183,4 +184,7 @@
 
     });
 </script>
+
+
+
 @stop

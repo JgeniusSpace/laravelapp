@@ -64,6 +64,10 @@ abstract class BaseRepository implements RepositoryInterface {
         return $this->model->all($columns);
     }
 
+    public function find ($id, $columns = ['*']) {
+        return $this->model->select($columns)->find($id);
+    }
+
     /**
      * 根据字段获取对应的数据集合
      *

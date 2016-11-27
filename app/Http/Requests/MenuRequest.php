@@ -23,13 +23,17 @@ class MenuRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'bail|required|unique:menus',
+        $rules = [
             'icon' => 'required',
             'url' => 'required',
-//            'heightlight_url' => 'required',
             'sort' => 'required',
         ];
+        if (request('id','')) {
+            $rules['name'] = 'required|unique:menus,name,'.$this->id;
+        }else{
+            $rules['name'] = 'required|unique:menus,name';
+        }
+        return $rules;
     }
 
     public function messages()
