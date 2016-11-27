@@ -9,3 +9,9 @@
 
 Route::get('/', 'HomeController@index');
 Route::resource('/home', 'HomeController@index');
+
+Route::get('/vue', 'VueController@index');
+
+Route::get('api/tasks', function () {
+    return \App\Models\Task::latest()->get();
+});
