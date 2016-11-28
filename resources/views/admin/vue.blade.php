@@ -5,6 +5,8 @@
     <link href="{{ asset('back/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
     <!-- nestable -->
     <link href="{{ asset('back/vendors/jquery-nestable/jquery.nestable.css') }}" rel="stylesheet">
+    {{--<link rel="stylesheet" href="{{ asset('js/layui/css/layui.css') }}">--}}
+    <meta id="token" name="token" value="{{ csrf_token() }}">
 @stop
 @section('content')
     <!-- page content -->
@@ -14,10 +16,15 @@
     <!-- /page content -->
     <template id="tasks-template">
         <div class="container">
-            <h1>我的任务</h1>
-            <li class="list-group" v-for="task in list">
+            <form class="form-group" @submit="createTask">
+            {{ csrf_field() }}
+                <input type="text" class="form-control" v-model="notes">
+                <button class="btn btn-success btn-block">提交</button>
+            </form>
+            <h1>我的任务(@{{taskCount}})</h1>
+            <li class="list-group" v-for="task in tasks | orderBy 'id' -1">
                 @{{ task.body }}
-                <span style="color: red" @click="deleteTask(task)">x</span>
+                <span class="glyphicon glyphicon-remove" style="cursor:pointer; color: red;" @click="deleteTask(task)"></span>
             </li>
         </div>
     </template>
@@ -28,27 +35,50 @@
     <script src="{{ asset('back/vendors/select2/dist/js/select2.full.min.js') }}"></script>
     <!-- nestable -->
     <script src="{{ asset('back/vendors/jquery-nestable/jquery.nestable.js') }}"></script>
+    <!-- layui -->
+    <script src="{{ asset('js/layui/layui.js') }}"></script>
     <!-- Vue.js -->
     {{--<script src="{{ asset('js/vue.js') }}"></script>--}}
     <script src="http://cdn.bootcss.com/vue/1.0.9/vue.js"></script>
     <script src="http://cdn.bootcss.com/vue-resource/0.6.1/vue-resource.min.js"></script>
     <script>
+        Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
+        var resource = Vue.resource('vue/{id}');
         Vue.component('task-app', {
             template: '#tasks-template',
             data: function () {
               return {
-                  list: []
+                  tasks: [],
+                  notes: '',
+                  taskCount: ''
               }
             },
             created: function(){
-                var vComponent = this;
-                this.$http.get('api/tasks', function (data) {
-                    vComponent.list = data;
-                });
+                this.$http.get('tasks', function (data) {
+                    this.tasks = data;
+                    this.taskCount = data.length;
+                }.bind(this));
             },
             methods: {
                 deleteTask: function (task) {
-                    this.list.$remove(task);
+                    resource.delete({id:task.id}, function (response) {
+                        layui.use(['layer', 'form'], function(){
+                            var layer = layui.layer;
+                            layer.msg(response.message);
+                        });
+                    });
+                    this.taskCount --;
+                    this.tasks.$remove(task);
+                },
+                createTask: function (e) {
+                    e.preventDefault();
+                    this.$http.post('vue', {body: this.notes}, function (response) {
+                        if (response.status == 'success') {
+                            this.tasks.push(response.task);
+                            this.notes = '';
+                            this.taskCount ++;
+                        }
+                    }.bind(this));
                 }
             }
         });

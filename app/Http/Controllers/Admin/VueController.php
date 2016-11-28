@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Response;
 
 class VueController extends Controller
 {
@@ -15,8 +16,7 @@ class VueController extends Controller
      */
     public function index()
     {
-        $tasks = Task::latest()->get();
-        return view('admin.vue',compact('tasks'));
+        return view('admin.vue');
     }
 
     /**
@@ -37,7 +37,11 @@ class VueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = Task::create($request->all());
+        return Response::json([
+            'status' => 'success',
+            'task' => $task
+        ]);
     }
 
     /**
@@ -82,6 +86,14 @@ class VueController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $boolean = Task::where(['id'=>$id])->delete();
+
+        if ($boolean) {
+            return Response::json(['message'=>'删除成功']);
+        }
+    }
+
+    public function ajaxTasks(){
+        return Task::latest()->get();
     }
 }

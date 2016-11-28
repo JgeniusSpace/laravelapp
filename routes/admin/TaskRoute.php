@@ -6,8 +6,6 @@
  * Date: 2016/11/17
  * Time: 下午9:00
  */
-Route::get('/vue', 'VueController@index');
+Route::resource('vue', 'VueController');
 
-Route::get('api/tasks', function () {
-    return \App\Models\Task::latest()->get();
-});
+Route::get('tasks', 'VueController@ajaxTasks');
