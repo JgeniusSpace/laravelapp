@@ -8,4 +8,3 @@
  */
 
 Route::resource('menus', 'MenusController');
-//Route::post('/menus/store', 'MenuController@store');

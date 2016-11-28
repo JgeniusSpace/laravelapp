@@ -30,4 +30,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     require (__DIR__.'/admin/HomeRoute.php');
     // 菜单路由
     require (__DIR__.'/admin/MenuRoute.php');
+    // 任务路由
+    require (__DIR__.'/admin/TaskRoute.php');
 });
